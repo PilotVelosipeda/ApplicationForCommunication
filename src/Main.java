@@ -6,6 +6,7 @@ public class Main {
         int foundAge = 21;
         double foundWeight = 55.1;
         String foundHobby = "Бизнес-литература";
+
         String foundMainClass = "Учеба";
         boolean havePartner = false;
 
@@ -23,15 +24,19 @@ public class Main {
             System.out.println("Назовите своё хобби: ");
             String hobby = new Scanner(System.in).nextLine();
 
+            System.out.println("Есть ли искомое нами хобби в списке ваших: " + hobby.contains(foundHobby));
+
             System.out.println("Расскажите, чем занимаетесь в основное время: ");
             String mainClass = new Scanner(System.in).nextLine();
+
+            System.out.println("Есть ли искомое нами занятие в списке ваших: " + mainClass.contains(mainClass));
 
             havePartner = (
                     (height >= foundHeight - 23 || height <= foundHeight + 3) &&
                     (age >= foundAge - 3 || age <= foundAge + 1) &&
                     (weight >= foundWeight - 15.9 || weight <= foundWeight + 4.9) &&
-                            (hobby.compareToIgnoreCase(foundHobby) == 0 || hobby.contains(foundHobby)) &&
-                    (mainClass.compareToIgnoreCase(foundMainClass) == 0 || hobby.contains(mainClass))
+                            (hobby.compareToIgnoreCase(foundHobby) == 0 || hobby.toLowerCase().contains(foundHobby.toLowerCase())) &&
+                    (mainClass.compareToIgnoreCase(foundMainClass) == 0 || mainClass.toLowerCase().contains(foundMainClass.toLowerCase()))
                     ) ? true : false;
 
             if (!havePartner) {
